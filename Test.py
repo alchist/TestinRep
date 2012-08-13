@@ -1,5 +1,8 @@
-from subprocess import Popen, PIPE
-x=Popen("ls -1", shell=True, stdin=PIPE, stdout=PIPE).stdout.read().split('\n')
+import subprocess
+x=subprocess.Popen("ls -1", shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE).stdout.read().split('\n')
 x.pop()
 for y in x:
-	print y
+	#s="mv"+' '+y+' '+ y[-10:]
+	#print (y)
+	subprocess.call(['mv',y,y[-10:]] )
+#subprocess.call(["ls","-l"])
